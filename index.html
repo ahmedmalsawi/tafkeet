@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="style.css">
+        <title>تفقيط المبالغ</title>
+    </head>
+    <body>
+        
+        
+        <div class="p-6  text-center max-w-sm mx-auto bg-slate-400 rounded-xl shadow-lg flex items-center space-x-4">
+            <div>
+                <div class="text-xl font-medium text-black text-center">فنون حواء للمطابخ</div>
+                <p class="text-red-900  text-center">اضغط علي تحويل لتحصل علي المبلغ كتابة</p>
+            </div>
+        </div>
+        <div class="p-4 m-4 max-w-sm mx-auto bg-blue-200 rounded-xl shadow-lg flex items-center space-x-4">
+            <div>
+                <input class="enabled:hover:border-gray-400 disabled:opacity-75  caret-blue-500 focus:caret-indigo-500" type="number" id="num" max="99999999999999" step="any"/>
+            </div>
+        </div>
+        <div class="p-6 m-4 max-w-sm mx-auto bg-blue-200 rounded-xl shadow-lg flex items-center space-x-4">
+            <div>
+                <h3 class="text-red-900  text-center" id="result"></h3>
+            </div>
+        </div>
+        <!-- <input type="button" id="submit" onclick="main()" value="تحويل الي  كتابة" /> -->
+        
+        <script src="script.js"></script>
+    </body>
+</html>
