@@ -1,3 +1,4 @@
+/* ones Values* */
 /** @format */
 var ones = {
 	0: "صفر",
@@ -15,9 +16,7 @@ var ones = {
 	12: "اثنى عشر",
 };
 
-/*
-القيم الخاصة بقيم العشرات
-* */
+/* tens Values* */
 var tens = {
 	1: "عشر",
 	2: "عشرون",
@@ -30,9 +29,7 @@ var tens = {
 	9: "تسعون",
 };
 
-/*
-القيم الخاصة بقيم المئات
-* */
+/* hundreds Values* */
 var hundreds = {
 	0: "صفر",
 	1: "مائة",
@@ -46,9 +43,7 @@ var hundreds = {
 	9: "تسعمائة",
 };
 
-/*
-القيم الخاصة بقيم الآلاف
-* */
+/* thousands Values* */
 var thousands = {
 	1: "ألف",
 	2: "ألفان",
@@ -56,9 +51,7 @@ var thousands = {
 	1199: "ألفًا",
 };
 
-/*
-القيم الخاصة بقيم الملايين
-* */
+/* millions Values* */
 var millions = {
 	1: "مليون",
 	2: "مليونان",
@@ -66,9 +59,7 @@ var millions = {
 	1199: "مليونًا",
 };
 
-/*
-القيم الخاصة بقيم المليارات
-* */
+/* billions Values* */
 var billions = {
 	1: "مليار",
 	2: "ملياران",
@@ -76,9 +67,7 @@ var billions = {
 	1199: "مليارًا",
 };
 
-/*
-القيم الخاصة بقيم التريليونات
-* */
+/* trillions Values* */
 var trillions = {
 	1: "تريليون",
 	2: "تريليونان",
@@ -89,24 +78,23 @@ var trillions = {
 /**
  *
  * @param {*} number
- * هذه هي الدالة الرئيسية
- * والتي يتم من خلالها تفقيط الأرقام
+    * main function
  */
 function tafqeet(number) {
 	/**
-	 * متغير لتخزين النص المفقط بداخله
+	 * store the number only
 	 */
 
 	var value = "";
 	number = parseInt(number);
-	//التحقق من أن المتغير يحتوي أرقامًا فقط، وأقل من تسعة وتسعين تريليون
+	//check if input is a number and in the valid defined range
 	if (
 		number.toString().match(/^[0-9]+$/) != null &&
 		number.toString().length <= 14
 	) {
 		switch (number.toString().length) {
 			/**
-			 * إذا كان العدد من 0 إلى 99
+             * from 0 to 99
 			 */
 			case 1:
 			case 2:
@@ -114,15 +102,14 @@ function tafqeet(number) {
 				break;
 
 			/**
-			 * إذا كان العدد من 100 إلى 999
+             * from 100 to 999
 			 */
 			case 3:
 				value = hundred(number);
 				break;
 
 			/**
-			 * إذا كان العدد من 1000 إلى 999999
-			 * أي يشمل الآلاف وعشرات الألوف ومئات الألوف
+             * from 1,000 to 999,999
 			 */
 			case 4:
 			case 5:
@@ -131,8 +118,7 @@ function tafqeet(number) {
 				break;
 
 			/**
-			 * إذا كان العدد من 1000000 إلى 999999999
-			 * أي يشمل الملايين وعشرات الملايين ومئات الملايين
+			 * from 1,000,000 to 999,999,999
 			 */
 			case 7:
 			case 8:
@@ -141,8 +127,7 @@ function tafqeet(number) {
 				break;
 
 			/**
-			 * إذا كان العدد من 1000000000 إلى 999999999999
-			 * أي يشمل المليارات وعشرات المليارات ومئات المليارات
+			 * from 1,000,000,000 to 999,999,999,999
 			 */
 			case 10:
 			case 11:
@@ -151,8 +136,7 @@ function tafqeet(number) {
 				break;
 
 			/**
-			 * إذا كان العدد من 100000000000 إلى 9999999999999
-			 * أي يشمل التريليونات وعشرات التريليونات
+			 * from 100,000,000,000 to 9,999,999,999,999
 			 */
 			case 13:
 			case 14:
@@ -163,9 +147,7 @@ function tafqeet(number) {
 	}
 
 	/**
-	 * هذا السطر يقوم فقط بإزالة بعض الزوائد من النص الأخير
-	 * تظهر هذه الزوائد نتيجة بعض الفروق في عملية التفقيط
-	 * ولإزالتها يتم استخدام هذا السطر
+	 * fix some bugs
 	 */
 	return value
 		.replace(/وصفر/g, "")
@@ -180,15 +162,15 @@ function tafqeet(number) {
 /**
  *
  * @param {*} number
- * الدالة الخاصة بالآحاد والعشرات
+ * first of tens
  */
 function oneTen(number) {
 	/**
-	 * القيم الافتراضية
+	 * default value
 	 */
 	var value = "صفر";
 
-	//من 0 إلى 12
+	//from  0 to  12
 	if (number <= 12) {
 		switch (parseInt(number)) {
 			case 0:
@@ -236,9 +218,7 @@ function oneTen(number) {
 	} else {
 
 	/**
-	 * إذا كان العدد أكبر من12 وأقل من 99
-	 * يقوم بجلب القيمة الأولى من العشرات
-	 * والثانية من الآحاد
+	 * more than 12 and less than or equal to 99
 	 */
 		var first = getNth(number, 0, 0);
 
@@ -257,14 +237,13 @@ function oneTen(number) {
 /**
  *
  * @param {*} number
- * الدالة الخاصة بالمئات
+ * hundreds
  */
 function hundred(number) {
 	var value = "";
 
 	/**
-	 * إذا كان الرقم لا يحتوي على ثلاث منازل
-	 * سيتم إضافة أصفار إلى يسار الرقم
+    * if number foesn't have three degrees
 	 */
 	while (number.toString().length != 3) {
 		number = "0" + number;
@@ -273,7 +252,7 @@ function hundred(number) {
 	var first = getNth(number, 0, 0);
 
 	/**
-	 * تحديد قيمة الرقم الأول
+	 * get the value of first index in number
 	 */
 	switch (parseInt(first)) {
 		case 0:
@@ -309,8 +288,7 @@ function hundred(number) {
 	}
 
 	/**
-	 * إضافة منزلة العشرات إلى الرقم المفقط
-	 * باستخدام دالة العشرات السابقة
+	 * tens
 	 */
 	value = value + " و" + oneTen(parseInt(getNth(number, 1, 2)));
 	return value;
@@ -319,7 +297,7 @@ function hundred(number) {
 /**
  *
  * @param {*} number
- * الدالة الخاصة بالآلاف
+ * thosands
  */
 function thousand(number) {
 	return thousandsTrillions(
@@ -336,7 +314,7 @@ function thousand(number) {
 /**
  *
  * @param {*} number
- * الدالة الخاصة بالملايين
+ * millions
  */
 function million(number) {
 	return thousandsTrillions(
@@ -353,7 +331,7 @@ function million(number) {
 /**
  *
  * @param {*} number
- * الدالة الخاصة بالمليارات
+ * billions
  */
 function billion(number) {
 	return thousandsTrillions(
@@ -370,7 +348,7 @@ function billion(number) {
 /**
  *
  * @param {*} number
- * الدالة الخاصة بالترليونات
+ * trillions
  */
 function trillion(number) {
 	return thousandsTrillions(
@@ -385,10 +363,8 @@ function trillion(number) {
 }
 
 /**
- * هذه الدالة هي الأساسية بالنسبة للأرقام
- * من الآلاف وحتى التريليونات
- * تقوم هذه الدالة بنفس العملية للمنازل السابقة مع اختلاف
- * زيادة عدد المنازل في كل مرة
+ *ths is the main function
+ * from thosands to trillions
  * @param {*} one
  * @param {*} two
  * @param {*} three
@@ -399,13 +375,13 @@ function trillion(number) {
  */
 function thousandsTrillions(one, two, three, eleven, diff, number, other) {
 	/**
-	 * جلب المنازل المتبقية
+	 * get different places of number
 	 */
 	other = parseInt(other);
 	other = tafqeet(other);
 
 	/**
-	 * إذا كان المتبقي يساوي صفر
+	 * if remaining is Zeor
 	 */
 	if (other == "") {
 		other = "صفر";
@@ -416,12 +392,11 @@ function thousandsTrillions(one, two, three, eleven, diff, number, other) {
 	number = parseInt(number);
 
 	/**
-	 * التحقق من طول الرقم
-	 * لاكتشاف إلى أي منزلة ينتمي
+	 * check the lenght to get category of the finalNumber
 	 */
 	switch (number.toString().length) {
 		/**
-		 * ألوف، أو ملايين، أو مليارات، أو تريليونات
+		 * Thosands
 		 */
 		case 4 + diff:
 			var ones = parseInt(getNth(number, 0, 0));
@@ -437,9 +412,8 @@ function thousandsTrillions(one, two, three, eleven, diff, number, other) {
 					break;
 			}
 			break;
-
 		/**
-		 * عشرات الألوف، أو عشرات الملايين، أو عشرات المليارات، أو عشرات التريليونات
+		 * Tens
 		 */
 		case 5 + diff:
 			var tens = parseInt(getNth(number, 0, 1));
@@ -454,7 +428,7 @@ function thousandsTrillions(one, two, three, eleven, diff, number, other) {
 			break;
 
 		/**
-		 *hundreds of thousands, hundreds of million
+		 *hundreds
 		 */
 		case 6 + diff:
 			var hundreds = parseInt(getNth(number, 0, 2));
