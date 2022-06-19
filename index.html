@@ -23,10 +23,12 @@
         </div> -->
         <div class="container bg-slate-200 d-flex mx-auto max-w-sm max-h-sm col-md-4 m-4 rounded-xl items-center shadow-2xl">
             <div class="d-flex col-md-4 flex items-center max-w-sm max-h-sm mx-auto">
-                <img class="shadow-2xl text-center flex-autop-2 flex-1 p-1" src="images/logo-wide.png" alt="logo">
+                <img class="shadow-2xl w-10 text-center flex-autop-2 flex-1 p-1" src="images/logo-wide.png" alt="logo">
         </div>
         <div class="d-flex col-md-4 flex items-center max-w-sm max-h-sm mx-auto" >
-            <input class="text-amber-600 text-center flex-1 p-2 bg-slate-200 shadow-lg" type="number" id="num" max="99999999999999" required pattern="^\d*(\.\d{0,2})?$" step="any" placeholder="اكتب الرقم المراد تحويله هنا"/>
+            <input class="text-amber-600 text-center flex-1 p-2 bg-slate-300 shadow-lg" type="number" id="num" max="99999999999999" step="0.01" placeholder="اكتب الرقم المراد تحويله هنا"
+            pattern="^\d+(?:\.\d{1,2})?$" 
+            />
             <!-- <input class="flex-auto rounded-r-lg p-2 bg-slate-400" type="button" id="submit" onclick="main()" value="تحويل" /> -->
         </div>
         <div class="tooltip p-1  max-w-sm max-h-sm mx-auto bg-slate-200 flex items-center space-x-4 shadow-lg">

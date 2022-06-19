@@ -504,13 +504,14 @@ function main() {
 	if (fraction.length == 2) {
 		document.getElementById("result").innerHTML = tafqeet(fraction[0]) + " ريال  و " + tafqeet(fraction[1]);
 		document.getElementById("result").innerHTML += " هللة  فقط لا غير";
-	
 	} else if (fraction.length == 1) {
         document.getElementById("result").innerHTML =
 					tafqeet(fraction[0]) + " ريال فقط لا غير";
-            // document.getElementById("result").innerHTML +=" هللة ";
+	}else if (fraction.length > 2) {
+        document.getElementById("result").innerHTML =" يمكنك استخدام رقمين فقط في الكسور";
 	}
 }
+
 
 document.getElementById("num").addEventListener("keyup", main);
 
