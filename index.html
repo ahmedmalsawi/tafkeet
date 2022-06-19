@@ -3,31 +3,39 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="//fononhawwa.com/wp-content/uploads/2021/10/222222.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="//fononhawwa.com/wp-content/uploads/2021/10/222222.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="//fononhawwa.com/wp-content/uploads/2021/10/222222.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="//fononhawwa.com/wp-content/uploads/2021/10/222222.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="//fononhawwa.com/wp-content/uploads/2021/10/222222.png">
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="style.css">
-        <title>تفقيط المبالغ</title>
+        <title>فنون حواء || تفقيط المبالغ</title>
     </head>
     <body>
         
         
-        <div class="p-6  text-center max-w-sm mx-auto bg-slate-400 rounded-xl shadow-lg flex items-center space-x-4">
+        <!-- <div class="p-6  text-center max-w-sm mx-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl shadow-lg flex items-center ">
             <div>
                 <div class="text-xl font-medium text-black text-center">فنون حواء للمطابخ</div>
-                <p class="text-red-900  text-center">اضغط علي تحويل لتحصل علي المبلغ كتابة</p>
+                <p class="text-white text-center">اضغط علي تحويل لتحصل علي المبلغ كتابة</p>
             </div>
+        </div> -->
+        <div class="container bg-slate-200 d-flex mx-auto max-w-sm max-h-sm col-md-4 m-4 rounded-xl items-center shadow-2xl">
+            <div class="d-flex col-md-4 flex items-center max-w-sm max-h-sm mx-auto">
+                <img class="shadow-2xl text-center flex-autop-2 flex-1 p-1" src="images/logo-wide.png" alt="logo">
         </div>
-        <div class="p-4 m-4 max-w-sm mx-auto bg-blue-200 rounded-xl shadow-lg flex items-center space-x-4">
-            <div>
-                <input class="enabled:hover:border-gray-400 disabled:opacity-75  caret-blue-500 focus:caret-indigo-500" type="number" id="num" max="99999999999999" step="any"/>
-            </div>
+        <div class="d-flex col-md-4 flex items-center max-w-sm max-h-sm mx-auto" >
+            <input class="text-amber-600 text-center flex-1 p-2 bg-slate-200 shadow-lg" type="number" id="num" max="99999999999999" required pattern="^\d*(\.\d{0,2})?$" step="any" placeholder="اكتب الرقم المراد تحويله هنا"/>
+            <!-- <input class="flex-auto rounded-r-lg p-2 bg-slate-400" type="button" id="submit" onclick="main()" value="تحويل" /> -->
         </div>
-        <div class="p-6 m-4 max-w-sm mx-auto bg-blue-200 rounded-xl shadow-lg flex items-center space-x-4">
-            <div>
-                <h3 class="text-red-900  text-center" id="result"></h3>
-            </div>
-        </div>
-        <!-- <input type="button" id="submit" onclick="main()" value="تحويل الي  كتابة" /> -->
-        
+        <div class="tooltip p-1  max-w-sm max-h-sm mx-auto bg-slate-200 flex items-center space-x-4 shadow-lg">
+            <h3 class="mb-3 text-amber-600  text-center flex-autop-1 flex-1" id="result" onclick="copy()" onmouseout="copyOut()" ></h3>
+            <span class="tooltiptext" id="myTooltip">
+                اضغط حتي يتم نسخ النتيجة الي الحافظة
+            </span>
+
+    </div>
         <script src="script.js"></script>
     </body>
 </html>

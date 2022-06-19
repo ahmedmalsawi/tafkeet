@@ -90,7 +90,7 @@ function tafqeet(number) {
 	//check if input is a number and in the valid defined range
 	if (
 		number.toString().match(/^[0-9]+$/) != null &&
-		number.toString().length <= 14
+		number.toString().length <= 15
 	) {
 		switch (number.toString().length) {
 			/**
@@ -206,11 +206,9 @@ function oneTen(number) {
 			case 10:
 				value = ones["10"];
 				break;
-
 			case 11:
 				value = ones["11"];
 				break;
-
 			case 12:
 				value = ones["12"];
 				break;
@@ -402,13 +400,13 @@ function thousandsTrillions(one, two, three, eleven, diff, number, other) {
 			var ones = parseInt(getNth(number, 0, 0));
 			switch (ones) {
 				case 1:
-					value = one + " و" + other;
+					value = one + " و" + other ;
 					break;
 				case 2:
-					value = two + " و" + other;
+					value = two + " و" + other ;
 					break;
 				default:
-					value = oneTen(ones) + " " + three + " و" + other;
+					value = oneTen(ones) + " " + three + " و" + other ;
 					break;
 			}
 			break;
@@ -419,15 +417,16 @@ function thousandsTrillions(one, two, three, eleven, diff, number, other) {
 			var tens = parseInt(getNth(number, 0, 1));
 			switch (tens) {
 				case 10:
-					value = oneTen(tens) + " " + three + " و" + other;
+					value =
+						oneTen(tens) + " " + three + " و" + other ;
+                        break;
+                        default:
+                    value = oneTen(tens) + " " +  eleven + " و" +  other;
 					break;
-				default:
-					value = oneTen(tens) + " " + eleven + " و" + other;
-					break;
-			}
-			break;
-
-		/**
+                }
+                break;
+                
+                /**
 		 *hundreds
 		 */
 		case 6 + diff:
@@ -446,18 +445,28 @@ function thousandsTrillions(one, two, three, eleven, diff, number, other) {
 			}
 			switch (tens) {
 				case 100 <= tens <= 199:
-					value = hundred(hundreds) + " " + th + " و" + other;
+					value =
+						hundred(hundreds) +
+						" " +
+						th +
+						" و" +
+						other;
 					break;
 				case 200 <= tens <= 299:
-					value = hundred(hundreds) + " " + th + " و" + other;
+					value =	hundred(hundreds) +	" " +th +" و" +	other ;
 					break;
 				default:
-					value = hundred(hundreds) + " " + th + " و" + other;
+                    value =
+                        hundred(hundreds) +
+                        " " +
+                        th +
+                        " و" +
+                        other;
 					break;
 			}
 			break;
 	}
-
+    // value += " ريال";
 	return value;
 }
 
@@ -485,7 +494,7 @@ function getNthReverse(number, limit) {
 			String(number).charAt(number.toString().length - x) + finalNumber;
 		x++;
 	}
-
+    console.log(finalNumber);
 	return finalNumber;
 }
 
@@ -493,11 +502,32 @@ function main() {
 	var fraction = document.getElementById("num").value.split(".");
 
 	if (fraction.length == 2) {
-		document.getElementById("result").innerHTML =
-			tafqeet(fraction[0]) + " و " + tafqeet(fraction[1]);
+		document.getElementById("result").innerHTML = tafqeet(fraction[0]) + " ريال  و " + tafqeet(fraction[1]);
+		document.getElementById("result").innerHTML += " هللة  فقط لا غير";
+	
 	} else if (fraction.length == 1) {
-		document.getElementById("result").innerHTML = tafqeet(fraction[0]);
+        document.getElementById("result").innerHTML =
+					tafqeet(fraction[0]) + " ريال فقط لا غير";
+            // document.getElementById("result").innerHTML +=" هللة ";
 	}
 }
 
 document.getElementById("num").addEventListener("keyup", main);
+
+
+
+function copy() {
+    var copyText = document.getElementById("result").textContent;
+    console.log(copyText);
+	// copyText[0].select();
+	// copyText.setSelectionRange(0, 99999);
+	navigator.clipboard.writeText(copyText);
+
+	var tooltip = document.getElementById("myTooltip");
+	tooltip.innerHTML = "تم النسخ بنجاح";
+}
+
+function copyOut() {
+	var tooltip = document.getElementById("myTooltip");
+	tooltip.innerHTML = "اضغط حتي يتم نسخ النتيجة الي الحافظة";
+}
