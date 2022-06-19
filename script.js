@@ -454,7 +454,7 @@ function thousandsTrillions(one, two, three, eleven, diff, number, other) {
 			break;
 
 		/**
-		 *مئات الألوف، أو مئات الملايين، أو مئات المليارات
+		 *hundreds of thousands, hundreds of million
 		 */
 		case 6 + diff:
 			var hundreds = parseInt(getNth(number, 0, 2));
@@ -488,7 +488,7 @@ function thousandsTrillions(one, two, three, eleven, diff, number, other) {
 }
 
 /**
- * دالة لجلب أجزاء من الرقم المراد تفقيطه
+ * get the number
  */
 function getNth(number, first, end) {
 	var finalNumber = "";
@@ -499,7 +499,7 @@ function getNth(number, first, end) {
 }
 
 /**
- * دالة تجلب أجزاء من الرقم بالعكس
+ * get numer reversed
  * @param {*} number
  * @param {*} limit
  */
